@@ -52,13 +52,10 @@ set nobackup
 syntax enable
 set background=dark
 "syntax enable
+set statusline=[FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=/%03.3b]\ %F%m%r%h%w\ [HEX=/%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
 "set background=dark
 colorscheme solarized
-if has('gui_running') && has('win32')
-    map <F11> :call libcallnr('gvimfullscreen.dll', 'ToggleFullScreen', 0)<CR>
-endif
 set go=
-imap <F11> :call libcallnr('gvimfullscreen.dll', 'ToggleFullScreen', 0)<CR>
 set nu
 set sw=4
 set ts=4
@@ -70,8 +67,8 @@ set fileencodings=utf-8,ucs-bom,cp936,big5
 set fileencoding=utf-8
 "set termencoding=utf-8
 ":imap  <Esc>
-:imap <C-F> <Esc>2li
-:imap <C-B> <Esc>i
+imap <C-F> <Esc>2li
+imap <C-B> <Esc>i
 function MyDiff()
   let opt = '-a --binary '
   if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
