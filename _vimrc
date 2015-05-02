@@ -6,7 +6,7 @@ set rtp+=~/vimfiles/bundle/Vundle.vim/
 let path='~/vimfiles/bundle'
 call vundle#begin(path)
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+"notext vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
