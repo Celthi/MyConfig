@@ -108,7 +108,7 @@ set hlsearch
 set mouse=a
 nmap <F9> :SCCompile<cr>
 nmap <F10> :SCCompileRun<cr>
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=/%03.3b]\ [HEX=/%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
+set statusline=[FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=/%03.3b]\ %F%m%r%h%w\ [HEX=/%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
 "上面的设置会在状态栏依次显示文件名、文件格式、文件类型、光标所在字符的ASCII值、16进制值、所在行、列、文件总行数。
 set laststatus=2
 " set the menu & the message to English

@@ -75,8 +75,10 @@ let g:SingleCompile_alwayscompile = 0
 nmap <F9> :SCCompile<cr>
 nmap <F10> :SCCompileRun<cr>
 "syntax enable
+set statusline=[FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=/%03.3b]\ %F%m%r%h%w\ [HEX=/%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
 "set background=dark
 colorscheme solarized
+<<<<<<< HEAD
 " if has('gui_running') && has('win32')
 "     map <F11> :call libcallnr('gvimfullscreen.dll', 'ToggleFullScreen', 0)<CR>
 " endif
@@ -142,6 +144,9 @@ func SetTitle()
 	"新建文件后，自动定位到文件末尾
 endfunc 
 autocmd BufNewFile * normal G
+=======
+set go=
+>>>>>>> d7088873a334d3668aad220d231e21ea2143acc3
 set nu
 set sw=4
 set ts=4
@@ -155,12 +160,13 @@ set fileencoding=utf-8
 ":imap  <Esc>
 imap <C-F> <Esc>2li
 imap <C-B> <Esc>i
+<<<<<<< HEAD
 imap jj <Esc>
 "nmap jj <Esc>
-noremap ; :
-vmap ; :
+"noremap ; :
+"vmap ; :
 " Map : to ; also in command mode.
-nnoremap ; :
+"nnoremap ; :
 "cscope show in quickfix
 "set cscopequickfix=s-,c-,d-,i-,t-,e-
 " Mapping to NERDTree
@@ -214,6 +220,8 @@ let Tlist_Use_Right_Window = 1 "在右侧窗口中显示taglist窗口
 nmap tl :Tlist<cr>
 behave mswin
 
+=======
+>>>>>>> d7088873a334d3668aad220d231e21ea2143acc3
 function MyDiff()
   let opt = '-a --binary '
   if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
