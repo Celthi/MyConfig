@@ -94,3 +94,7 @@ alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
 ## add a new screen , or entire session, name it, then ssh to the host
 ## Replace HOST with what you want the screen session named, surround with double quotes if there is a space
 #alias sshost='screen -t HOST shost'
+function chpwd() {
+    emulate -L zsh
+	    ls 
+	}
