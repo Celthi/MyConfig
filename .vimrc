@@ -107,7 +107,8 @@ set ts =4
 set autoindent "take indent for new line from previous line
 set hlsearch
 set mouse=a
-map <C-X> :q<CR>
+set wildmenu
+map <S-Q> :wq<CR>
 nmap <F9> :SCCompile<cr>
 nmap <F10> :SCCompileRun<cr>
 set statusline=[FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=/%03.3b]\ %F%m%r%h%w\ [HEX=/%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
@@ -121,22 +122,49 @@ set fileencodings=utf-8,ucs-bom,cp936,big5
 set fileencoding=utf-8
 set termencoding=utf-8
 imap jj <Esc>
-imap <C-F> <Esc>2li
-imap <C-B> <Esc>i
+"imap <C-F> <Esc>2li
+"imap <C-B> <Esc>i
+inoremap <C-A>      <Home>
+inoremap <C-B>      <Left>
+inoremap <C-E>      <End>
+inoremap <C-F>      <Right>
+inoremap <ESC>b     <S-Left>
+inoremap <ESC>f     <S-Right>
+inoremap b    <S-Left>
+inoremap f     <S-Right>
+"inoremap <C-N>      <End>
+hi statusline guibg=Cyan ctermfg=6 guifg=Black ctermbg=0
+" allow command line editing like emacs
+cnoremap <C-A>      <Home>
+cnoremap <C-B>      <Left>
+cnoremap <C-E>      <End>
+cnoremap <C-F>      <Right>
+cnoremap <C-N>      <End>
+cnoremap <C-P>      <Up>
+cnoremap <ESC>b     <S-Left>
+cnoremap <ESC>f     <S-Right>
 "noremap ; :
-vmap ; :
+"vmap ; :
 " Map : to ; also in command mode.
 "nnoremap ; :
 "cscope show in quickfix
 "set cscopequickfix=s-,c-,d-,i-,t-,e-
 " Mapping to NERDTree
-noremap <C-n> :NERDTreeToggle<cr>
-inoremap <C-n> <ESC>:NERDTreeToggle<cr>i
+noremap <C-l> :NERDTreeToggle<cr>
+inoremap <C-l> <ESC>:NERDTreeToggle<cr>i
 " let NERDTreeIgnore=['\~$', '\.pyc$']
 map ,, :FufCoverageFile <cr>
 "colo desert
 
+"key mapping for window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
 
+"key mapping for vimgrep result navigation
+"map <A-o> :copen<CR>
+"map <A-q> :cclose<CR>
+"map <A-j> :cnext<CR>
+"map <A-k> :cprevious<CR>
 """""""""""""""""
 set diffexpr=MyDiff()
 function MyDiff()
