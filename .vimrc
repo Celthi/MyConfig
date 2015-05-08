@@ -150,15 +150,15 @@ cnoremap <ESC>f     <S-Right>
 "cscope show in quickfix
 "set cscopequickfix=s-,c-,d-,i-,t-,e-
 " Mapping to NERDTree
-noremap <C-l> :NERDTreeToggle<cr>
-inoremap <C-l> <ESC>:NERDTreeToggle<cr>i
+noremap <F2> :NERDTreeToggle<cr>
+inoremap <F2> <ESC>:NERDTreeToggle<cr>i
 " let NERDTreeIgnore=['\~$', '\.pyc$']
 map ,, :FufCoverageFile <cr>
 "colo desert
 
 "key mapping for window navigation
 map <C-h> <C-w>h
-map <C-j> <C-w>j
+map <C-l> <C-w>l
 
 "key mapping for vimgrep result navigation
 "map <A-o> :copen<CR>
