@@ -6,7 +6,7 @@ set rtp+=~/vimfiles/bundle/Vundle.vim/
 let path='~/vimfiles/bundle'
 call vundle#begin(path)
 " alternatively, pass a path where Vundle should install plugins
-"notext vundle#begin('~/some/path/here')
+"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
@@ -18,6 +18,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'msanders/snipmate.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'altercation/vim-colors-solarized.git'
 
 "Plugin 'uguu-org/vim-matrix-screensaver'
 
@@ -40,7 +41,6 @@ Plugin 'git://git.wincent.com/command-t.git'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Plugin 'file:///C:/Users/celhipc/vimfiles/bundle/taglist/taglist.vim'
 
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
@@ -65,7 +65,7 @@ set omnifunc=syntaxcomplete#Complete
 "
 " source $VIMRUNTIME/vimrc_example.vim
 " source $VIMRUNTIME/mswin.vim
-
+"echo "hellow world"
 set mouse =a
 set writebackup
 set nobackup
@@ -75,9 +75,13 @@ let g:SingleCompile_alwayscompile = 0
 nmap <F9> :SCCompile<cr>
 nmap <F10> :SCCompileRun<cr>
 "syntax enable
-set statusline=[FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=/%03.3b]\ %F%m%r%h%w\ [HEX=/%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
 "set background=dark
 colorscheme solarized
+if has('gui_running')
+    set background=dark
+else
+    set background=light
+endif
 " if has('gui_running') && has('win32')
 "     map <F11> :call libcallnr('gvimfullscreen.dll', 'ToggleFullScreen', 0)<CR>
 " endif
@@ -143,7 +147,6 @@ func SetTitle()
 	"新建文件后，自动定位到文件末尾
 endfunc 
 autocmd BufNewFile * normal G
-set go=
 set nu
 set sw=4
 set ts=4
@@ -157,18 +160,13 @@ set fileencoding=utf-8
 ":imap  <Esc>
 imap <C-F> <Esc>2li
 imap <C-B> <Esc>i
-<<<<<<< HEAD
 imap jj <Esc>
-"nmap jj <Esc>
-"noremap ; :
-"vmap ; :
-" Map : to ; also in command mode.
-"nnoremap ; :
+
 "cscope show in quickfix
 "set cscopequickfix=s-,c-,d-,i-,t-,e-
 " Mapping to NERDTree
-noremap <C-n> :NERDTreeToggle<cr>
-inoremap <C-n> <ESC>:NERDTreeToggle<cr>i
+noremap <F3> :NERDTreeToggle<cr>
+inoremap <F3> <ESC>:NERDTreeToggle<cr>i
 " let NERDTreeIgnore=['\~$', '\.pyc$']
 map ,, :FufCoverageFile <cr>
 "let g:fuf_coveragefile_globPatterns = []
@@ -177,28 +175,9 @@ imap <C-a> <Esc>^
 imap <C-e> <Esc>$
 vmap <C-c> "+y
 set backspace=indent,eol,start
-" imap - _
-" imap <S-_> -
-" set mouse=v
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CTags的设定  
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let Tlist_Sort_Type = "name"    " 按照名称排序  
-let Tlist_Use_Right_Window = 1  " 在右侧显示窗口  
-let Tlist_Compart_Format = 1    " 压缩方式  
-let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill掉buffer  
-""let Tlist_File_Fold_Auto_Close = 0  " 不要关闭其他文件的tags  
-""let Tlist_Enable_Fold_Column = 0    " 不要显示折叠树  
-"let Tlist_Show_One_File=1            "不同时显示多个文件的tag，只显示当前文件的
-"设置tags  
-"set tags=tags  
-"set autochdir 
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"其他东东
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "默认打开Taglist 
 let Tlist_Auto_Open=0 
 """""""""""""""""""""""""""""" 
@@ -209,6 +188,13 @@ let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前
 let Tlist_File_Fold_Auto_Close = 1
 let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim 
 let Tlist_Use_Right_Window = 1 "在右侧窗口中显示taglist窗口
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CTags的设定  
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let Tlist_Sort_Type = "name"    " 按照名称排序  
+let Tlist_Use_Right_Window = 1  " 在右侧显示窗口  
+let Tlist_Compart_Format = 1    " 压缩方式  
+let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill掉buffer  
 " minibufexpl插件的一般设置
 "let g:miniBufExplMapWindowNavVim = 1
 "let g:miniBufExplMapWindowNavArrows = 1
@@ -240,4 +226,6 @@ function MyDiff()
   endif
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
+
+
 
