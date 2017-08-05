@@ -1,0 +1,22 @@
+[user]
+	name = Xianting
+	email = EvanL00@qq.com
+[credential]
+	helper = wincred
+[mergetool "kdiff3"]
+	path = C:\\Program Files\\KDiff3\\bin\\diff3
+[color]
+	ui = auto
+[core]
+	autocrlf = true
+	editor = 'C:\\Program Files (x86)\\Vim\\vim80\\gvim.exe' --nofork '%*'
+[difftool "sourcetree"]
+	cmd = 'C:/Program Files/KDiff3/kdiff3.exe' \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+	cmd = 'C:/Program Files/KDiff3/kdiff3.exe' \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
+[alias]
+	st = status
+	cm = commit
+	co = checkout
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
