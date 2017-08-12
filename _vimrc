@@ -69,6 +69,9 @@ set omnifunc=syntaxcomplete#Complete
 set mouse =a
 set writebackup
 set nobackup
+
+nnoremap j gj
+nnoremap k gk
 syntax enable
 set background=dark
 let g:SingleCompile_alwayscompile = 0
