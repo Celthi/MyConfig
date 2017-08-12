@@ -69,7 +69,12 @@ set omnifunc=syntaxcomplete#Complete
 set mouse =a
 set writebackup
 set nobackup
-
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
 nnoremap j gj
 nnoremap k gk
 syntax enable
