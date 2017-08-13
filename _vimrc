@@ -168,7 +168,6 @@ set fileencoding=utf-8
 ":imap  <Esc>
 imap <C-F> <Esc>2li
 imap <C-B> <Esc>i
-imap jj <Esc>
 
 "cscope show in quickfix
 "set cscopequickfix=s-,c-,d-,i-,t-,e-
