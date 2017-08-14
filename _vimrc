@@ -208,6 +208,7 @@ let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill�
 "let g:miniBufExplMapCTabSwitchBufs = 1
 "let g:miniBufExplModSelTarget = 1  
 nmap tl :Tlist<cr>
+autocmd BufReadPost * tab ball
 behave mswin
 
 function MyDiff()
