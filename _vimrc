@@ -71,6 +71,7 @@ set writebackup
 set nobackup
 nnoremap n nzz
 nnoremap N Nzz
+set ic
 nnoremap * *zz
 nnoremap # #zz
 nnoremap g* g*zz
