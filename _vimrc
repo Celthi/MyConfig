@@ -70,6 +70,8 @@ set mouse =a
 set writebackup
 set nobackup
 let mapleader=","
+noremap <leader>ev :slplit $MYVIMRC<CR>
+noremap <leader>sv :source $MYVIMRC<CR>
 " key map parts
 " there are map, nmap, vmap, imap, total four mode map
 "  normal map
@@ -82,6 +84,7 @@ nnoremap g* g*zz
 nnoremap g# g#zz
 nnoremap j gj
 nnoremap k gk
+" code snip for daily work
 iab hrck if (FAILED(hr)) return hr;
 " insert map
 inoremap <c-u> <ESC>bviwUea
