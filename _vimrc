@@ -106,7 +106,7 @@ endif
 " endif\
 "setting to get feature
 set incsearch
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容  
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ 0x%B%=\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容  
 set laststatus=2    " 启动显示状态行(1),总是显示状态行(2)  
 set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
