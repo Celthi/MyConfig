@@ -69,6 +69,10 @@ set omnifunc=syntaxcomplete#Complete
 set mouse =a
 set writebackup
 set nobackup
+let mapleader=","
+" key map parts
+" there are map, nmap, vmap, imap, total four mode map
+"  normal map
 nnoremap n nzz
 nnoremap N Nzz
 set ic
@@ -78,6 +82,9 @@ nnoremap g* g*zz
 nnoremap g# g#zz
 nnoremap j gj
 nnoremap k gk
+iab hrck if (FAILED(hr)) return hr;
+" insert map
+inoremap <c-u> <ESC>bviwUea
 syntax enable
 set background=dark
 let g:SingleCompile_alwayscompile = 0
@@ -93,8 +100,9 @@ else
 endif
 " if has('gui_running') && has('win32')
 "     map <F11> :call libcallnr('gvimfullscreen.dll', 'ToggleFullScreen', 0)<CR>
-" endif
-set go=
+" endif\
+"setting to get feature
+set incsearch
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容  
 set laststatus=2    " 启动显示状态行(1),总是显示状态行(2)  
 set statusline+=%#warningmsg#
