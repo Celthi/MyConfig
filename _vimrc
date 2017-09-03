@@ -2,11 +2,12 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/vimfiles/bundle/Vundle.vim/
-let path='~/vimfiles/bundle'
+set rtp+=~/bundle/Vundle.vim/
+set rtp+=~/.vim/colors
+let path='~/bundle'
 call vundle#begin(path)
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
@@ -50,7 +51,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 filetype plugin on
-" filetype on
+filetype on
 set omnifunc=syntaxcomplete#Complete
 "
 " Brief help
@@ -72,48 +73,26 @@ set nobackup
 let mapleader=","
 noremap <leader>ev :slplit $MYVIMRC<CR>
 noremap <leader>sv :source $MYVIMRC<CR>
-" key map parts
-" there are map, nmap, vmap, imap, total four mode map
-"  normal map
-nnoremap n nzz
-nnoremap N Nzz
-set ic
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
-nnoremap j gj
-nnoremap k gk
-" code snip for daily work
-iab hrck if (FAILED(hr)) return hr;
-" insert map
-inoremap <c-u> <ESC>bviwUea
+
 syntax enable
-set background=dark
 let g:SingleCompile_alwayscompile = 0
 nmap <F9> :SCCompile<cr>
 nmap <F10> :SCCompileRun<cr>
-"syntax enable
-"set background=dark
 colorscheme solarized
 if has('gui_running')
     set background=dark
 else
     set background=light
 endif
-" if has('gui_running') && has('win32')
-"     map <F11> :call libcallnr('gvimfullscreen.dll', 'ToggleFullScreen', 0)<CR>
-" endif\
+
 "setting to get feature
 set incsearch
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ 0x%B%=\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容  
 set laststatus=2    " 启动显示状态行(1),总是显示状态行(2)  
 set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=5
-" imap <F11> <ESC>:call libcallnr('gvimfullscreen.dll', 'ToggleFullScreen', 0")<CR>
 """""""""""""""""""""
 """""新文件标题
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -171,28 +150,39 @@ set nu
 set sw=4
 set ts=4
 set autoindent
-set hlsearch
-"let $LANG='en_US'
-"set encoding=utf-8
-set fileencodings=utf-8,cp936,big5
-set fileencoding=utf-8
-"set termencoding=utf-8
-":imap  <Esc>
+set fileencodings=utf-8,ucs-bom,cp936,big5
+
+" key map parts
+" there are map, nmap, vmap, imap, total four mode map
+"  normal map
+nnoremap n nzz
+nnoremap N Nzz
+" case insensitive
+set ic
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+nnoremap j gj
+nnoremap k gk
+" code snip for daily work
+iab hrck if (FAILED(hr)) return hr;
+" insert map
+inoremap <c-u> <ESC>bviwUea
 imap <C-F> <Esc>2li
 imap <C-B> <Esc>i
+imap <C-v> <Esc>"*pa
+imap <C-a> <Esc>^
+imap <C-e> <Esc>$
+vmap <C-c> "+y
 
-"cscope show in quickfix
-"set cscopequickfix=s-,c-,d-,i-,t-,e-
 " Mapping to NERDTree
 noremap <F3> :NERDTreeToggle<cr>
 inoremap <F3> <ESC>:NERDTreeToggle<cr>i
 " let NERDTreeIgnore=['\~$', '\.pyc$']
 map ,, :FufCoverageFile <cr>
 "let g:fuf_coveragefile_globPatterns = []
-imap <C-v> <Esc>"*pa
-imap <C-a> <Esc>^
-imap <C-e> <Esc>$
-vmap <C-c> "+y
+
 set backspace=indent,eol,start
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -202,7 +192,6 @@ let Tlist_Auto_Open=0
 """""""""""""""""""""""""""""" 
 " Tag list (ctags) 
 """""""""""""""""""""""""""""""" 
-"let Tlist_Ctags_Cmd = '/usr/local/bin/ctags' 
 let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前文件的 
 let Tlist_File_Fold_Auto_Close = 1
 let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim 
@@ -214,14 +203,10 @@ let Tlist_Sort_Type = "name"    " 按照名称排序
 let Tlist_Use_Right_Window = 1  " 在右侧显示窗口  
 let Tlist_Compart_Format = 1    " 压缩方式  
 let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill掉buffer  
-" minibufexpl插件的一般设置
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBufs = 1
-"let g:miniBufExplModSelTarget = 1  
+ 
 nmap tl :Tlist<cr>
 autocmd BufReadPost * tab ball
-behave mswin
+"behave mswin
 
 function MyDiff()
   let opt = '-a --binary '
