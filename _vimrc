@@ -168,7 +168,7 @@ nnoremap k gk
 iab hrck if (FAILED(hr)) return hr;
 " insert map
 inoremap <c-u> <ESC>bviwUea
-imap <C-F> <Esc>2li
+imap <C-F> <Esc>la
 imap <C-B> <Esc>i
 imap <C-v> <Esc>"*pa
 imap <C-a> <Esc>^
