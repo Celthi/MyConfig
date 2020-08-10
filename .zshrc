@@ -74,7 +74,7 @@ setopt extendedhistory
  
 #ALIASES
 ##ls, the common ones I use a lot shortened for rapid fire usage
-alias ls='ls --color' #I like color
+alias ls='ls -G' #I like color
 alias l='ls -lFh'     #size,show type,human readable
 alias la='ls -lAFh'   #long list,show almost all,show type,human readable
 alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
@@ -112,7 +112,13 @@ zstyle ':vcs_info:*' actionformats \
                           fi
                           }
                           RPROMPT=$'$(vcs_info_wrapper)'
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 function chpwd() {
     emulate -L zsh
 	    ls 
-	}
+}
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
+export PATH="$PATH:$HOME/.cargo/bin"
